@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <defs>
+        <style>.a{fill:#f0f3f7;}.b{fill:#b3e0e0;}.c{fill:#bae7f7;}</style>
+    </defs>
+    <g transform="translate(0 50)">
+        <rect class="a" width="1920" height="1080" transform="translate(0 -50)"/>
+        <path class="b"
+              d="M1920,375.13V1080H1247.48c-.09-.17-.17-.33-.24-.5A517.538,517.538,0,0,1,1195.43,853c0-287.08,232.72-519.8,519.8-519.8a517.819,517.819,0,0,1,204.27,41.69A5.3,5.3,0,0,1,1920,375.13Z"
+              transform="translate(0 -50)"/>
+        <path class="c"
+              d="M481,99c0,214.2-173.6,387.82-387.77,387.82A388.731,388.731,0,0,1,.5,475.66l-.5-.12V0H468.25a4.1,4.1,0,0,1,.14.5A388.4,388.4,0,0,1,481,99Z"
+              transform="translate(0 -50)"/>
+    </g>
+</svg>
