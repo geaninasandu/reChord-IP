@@ -1,8 +1,10 @@
 import React from 'react';
-import { Avatar, Button, Cascader, Layout } from 'antd';
+import { Avatar, Button, Cascader, Input, Layout } from 'antd';
 import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined } from '@ant-design/icons';
+import { useStoreActions } from 'easy-peasy';
 import { isAuthenticated, signOut } from '../../../../auth';
 
+const { Search } = Input;
 const { Header } = Layout;
 
 const options = [
@@ -25,6 +27,13 @@ const options = [
 const DashboardHeader = (props) => {
 
     const { user } = isAuthenticated();
+    const setSearchString = useStoreActions(actions => actions.setSearchString);
+    const findAlbum = useStoreActions(actions => actions.findAlbum);
+
+    const handleSearch = (event) => {
+        setSearchString(event.target.value);
+        findAlbum();
+    };
 
     const handleChange = (value) => {
         if (value[0] === 'logout') {
@@ -45,6 +54,8 @@ const DashboardHeader = (props) => {
             </div>
 
             <div id="header-right">
+                <Search className="search-input" placeholder="Search album by title" onChange={handleSearch} />
+
                 <Cascader options={options} onChange={handleChange}>
                     <div className="user centered">
                         <Avatar src={require(`../../../../assets/images/avatars/${user.avatar}.svg`)} />

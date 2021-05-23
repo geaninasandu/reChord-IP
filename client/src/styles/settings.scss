@@ -1,0 +1,55 @@
+#settings {
+  margin: 3rem auto;
+  width: 45%;
+
+  #credentials {
+    margin-bottom: 3rem;
+
+    .ant-input-affix-wrapper {
+      margin: 0.5rem 0 1rem;
+    }
+  }
+
+  #avatar-container {
+    display: flex;
+    margin-bottom: 3rem;
+
+    #avatar {
+      margin-right: 2rem;
+    }
+
+    #change-avatar {
+      padding: 1rem;
+
+      .ant-btn {
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        color: #666666;
+      }
+    }
+  }
+
+  #change-password {
+    margin-top: 2rem;
+  }
+
+  .ant-divider {
+    margin-bottom: 2rem;
+  }
+
+  .ant-divider-inner-text {
+    font-size: 1rem;
+  }
+}
+
+#avatars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem 1rem;
+
+  .selected-avatar {
+    border: solid 0.3rem #111111;
+  }
+}

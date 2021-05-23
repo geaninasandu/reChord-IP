@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card } from 'antd';
 import 'antd/dist/antd.less';
 import '../../styles/albumCard.scss';
+import InfoModal from '../modals/InfoModal';
 import { AboutAction, AddAction, MarkAsListenedAction, RateAction, RemoveAction } from './Actions';
 import { isAuthenticated } from '../../auth';
 
@@ -49,6 +50,9 @@ const AlbumCard = (props) => {
 
                   actions={actions()}>
             </Card>
+
+            <InfoModal modalVisibility={modalVisibility} toggleModalVisibility={toggleModalVisibility}
+                       album={props.album} />
         </div>
     );
 };

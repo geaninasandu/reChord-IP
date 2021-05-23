@@ -29,7 +29,7 @@ const AlbumSchema = mongoose.Schema({
         type: [ {
             index: Number,
             title: String,
-            duration: Number,
+            duration: String,
         } ],
         default: [],
     },
@@ -41,10 +41,6 @@ const AlbumSchema = mongoose.Schema({
     rating: {
         type: Number,
         default: 0,
-    },
-    description: {
-        type: String,
-        default: '',
     },
 });
 

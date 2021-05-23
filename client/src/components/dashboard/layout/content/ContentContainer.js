@@ -1,11 +1,11 @@
 import React from 'react';
-import {Layout} from 'antd';
+import { Layout } from 'antd';
 import ContentHeader from './ContentHeader';
 import Albums from '../../../pages/Albums';
-import {useStoreState} from 'easy-peasy';
-import EmptyContent from "../../others/EmptyContent";
+import Settings from '../../../pages/Settings';
+import { useStoreState } from 'easy-peasy';
 
-const {Content} = Layout;
+const { Content } = Layout;
 
 const ContentContainer = (props) => {
 
@@ -13,17 +13,17 @@ const ContentContainer = (props) => {
 
     return (
         <Content id="content-container">
-            <ContentHeader title={searchString === '' ? props.title : 'Search'}/>
+            <ContentHeader title={searchString === '' ? props.title : 'Search'} />
 
             {
                 searchString !== '' ?
-                    <Albums content="search"/> :
+                    <Albums content="search" /> :
 
                     <div id="content-div">
-                        {props.title === 'Playlist' && <Albums content="playlist"/>}
-                        {props.title === 'New' && <Albums content="new"/>}
-                        {props.title === 'Listened' && <Albums content="listened"/>}
-                        {props.title === 'Settings' && <EmptyContent/>}
+                        {props.title === 'Playlist' && <Albums content="playlist" />}
+                        {props.title === 'New' && <Albums content="new" />}
+                        {props.title === 'Listened' && <Albums content="listened" />}
+                        {props.title === 'Settings' && <Settings />}
                     </div>
             }
         </Content>

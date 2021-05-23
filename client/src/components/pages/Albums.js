@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 import { Spin } from 'antd';
 import AlbumCard from '../album/AlbumCard';
+import Page from '../dashboard/others/Page';
 import EmptyContent from '../dashboard/others/EmptyContent';
 import { isEqual } from 'lodash';
 import { isAuthenticated } from '../../auth';
@@ -32,6 +33,16 @@ const Albums = (props) => {
     );
 
     const [ loading, setLoading ] = useState(true);
+    const [ currentPage, setCurrentPage ] = useState(1);
+
+    const postsPerPage = 8;
+    const indexOfLastAlbum = currentPage * postsPerPage;
+    const indexOfFirstAlbum = indexOfLastAlbum - postsPerPage;
+    const currentAlbums = albums.slice(indexOfFirstAlbum, indexOfLastAlbum);
+
+    const changePage = (page) => {
+        setCurrentPage(page);
+    };
 
     useEffect(() => {
         fetchAlbums({ user, token }).then(() => setLoading(false));
@@ -50,12 +61,15 @@ const Albums = (props) => {
                         <div className="albums">
                             <div className="albums-container">
                                 {
-                                    albums.map(album =>
+                                    currentAlbums.map(album =>
                                         <AlbumCard key={album.deezerID} album={album} loading={true}
                                                    listened={album.listened} />,
                                     )
                                 }
                             </div>
+
+                            <Page total={albums.length} postsPerPage={postsPerPage} currentPage={currentPage}
+                                  changePage={changePage} />
                         </div>
             }
         </div>
